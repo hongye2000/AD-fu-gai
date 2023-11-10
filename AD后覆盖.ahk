@@ -76,7 +76,7 @@ if (热键开关f=0)
 热键开关s:=0
 if GetKeyState("s", "P")
 {
-  Send {a Up}
+  Send {s Up}
 }
 Critical On
 loop
@@ -104,7 +104,7 @@ loop
     break
   }
 }
-Send {a Down}
+Send {s Down}
 反向:=1
 热键开关s:=1
 Critical Off
@@ -119,7 +119,7 @@ if (热键开关f=0)
 热键开关s:=0
 if GetKeyState("f", "P")
 {
-  Send {d Up}
+  Send {f Up}
 }
 loop
 {
@@ -148,7 +148,7 @@ loop
     break
   }
 }
-Send {d Down}
+Send {f Down}
 反向:=1
 热键开关f:=1
 Critical Off
