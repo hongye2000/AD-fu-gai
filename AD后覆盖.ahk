@@ -50,15 +50,15 @@ Critical, On
 if (running=0)
 {
   running:=1
-  Hotkey, a, On
-  Hotkey, d, On
+  Hotkey, s, On
+  Hotkey, f, On
   Menu, Tray, UnCheck, 暂停运行 ;右键菜单不打勾
 }
 else
 {
   running:=0
-  Hotkey, a, Off
-  Hotkey, d, Off
+  Hotkey, s, Off
+  Hotkey, f, Off
   Menu, Tray, Check, 暂停运行 ;右键菜单不打勾
 }
 Critical, Off
