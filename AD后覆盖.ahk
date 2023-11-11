@@ -160,7 +160,7 @@ if (热键开关e=0)
 {
   return
 }
-右移动:
+上移动:
 热键开关e:=0
 if GetKeyState("e", "P")
 {
@@ -196,14 +196,14 @@ Send {e Down}
 反向:=1
 热键开关s:=1
 Critical Off
-goto 左移动
+goto 上移动
 
 ~$d:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 左
 if (热键开关e=0)
 {
   return
 }
-左移动:
+下移动:
 热键开关v:=0
 if GetKeyState("v", "P")
 {
@@ -240,4 +240,4 @@ Send {v Down}
 反向:=1
 热键开关v:=1
 Critical Off
-goto 右移动
+goto 下移动
