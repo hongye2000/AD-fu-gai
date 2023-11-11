@@ -153,3 +153,92 @@ Send {f Down}
 热键开关f:=1
 Critical Off
 goto 右移动
+
+
+~$d:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 下
+if (热键开关d=0)
+{
+  return
+}
+右移动:
+热键开关v:=0
+if GetKeyState("v", "P")
+{
+  Send {v Up}
+}
+Critical On
+loop
+{
+  if !GetKeyState("d", "P")
+  {
+    if GetKeyState("v", "P")
+    {
+      反向:=0
+      break
+    }
+    else
+    {
+      热键开关v:=1
+      Critical Off
+      return
+    }
+  }
+  else if !GetKeyState("v", "P") and (反向=1)
+  {
+    反向:=0
+  }
+  else if GetKeyState("v", "P") and (反向!=1)
+  {
+    break
+  }
+}
+Send {v Down}
+反向:=1
+热键开关v:=1
+Critical Off
+goto 左移动
+
+~$v:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 上
+if (热键开关d=0)
+{
+  return
+}
+左移动:
+热键开关v:=0
+if GetKeyState("d", "P")
+{
+  Send {d Up}
+}
+loop
+{
+  Critical On
+  if !GetKeyState("v", "P")
+  {
+    if GetKeyState("d", "P")
+    {
+      反向:=0
+      Critical Off
+      break
+    }
+    else
+    {
+      Critical Off
+      热键开关d:=1
+      return
+    }
+  }
+  else if !GetKeyState("d", "P") and (反向=1)
+  {
+    反向:=0
+  }
+  else if GetKeyState("d", "P") and (反向!=1)
+  {
+    break
+  }
+}
+Send {d Down}
+反向:=1
+热键开关d:=1
+Critical Off
+goto 右移动
+
