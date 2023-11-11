@@ -155,23 +155,23 @@ Critical Off
 goto 右移动
 
 
-~$v:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 右
+~$v:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 上
 if (热键开关e=0)
 {
   return
 }
 上移动:
 热键开关e:=0
-if GetKeyState("e", "P")
+if GetKeyState("e", "O")
 {
   Send {e Up}
 }
 Critical On
 loop
 {
-  if !GetKeyState("v", "P")
+  if !GetKeyState("v", "O")
   {
-    if GetKeyState("e", "P")
+    if GetKeyState("e", "O")
     {
       反向:=0
       break
@@ -183,11 +183,11 @@ loop
       return
     }
   }
-  else if !GetKeyState("e", "P") and (反向=1)
+  else if !GetKeyState("e", "O") and (反向=1)
   {
     反向:=0
   }
-  else if GetKeyState("e", "P") and (反向!=1)
+  else if GetKeyState("e", "O") and (反向!=1)
   {
     break
   }
@@ -198,23 +198,23 @@ Send {e Down}
 Critical Off
 goto 上移动
 
-~$d:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 左
+~$d:: ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<改键改字母成你需要的按键 下
 if (热键开关e=0)
 {
   return
 }
 下移动:
 热键开关v:=0
-if GetKeyState("v", "P")
+if GetKeyState("v", "O")
 {
   Send {w Up}
 }
 loop
 {
   Critical On
-  if !GetKeyState("e", "P")
+  if !GetKeyState("e", "O")
   {
-    if GetKeyState("v", "P")
+    if GetKeyState("v", "O")
     {
       反向:=0
       Critical Off
@@ -227,11 +227,11 @@ loop
       return
     }
   }
-  else if !GetKeyState("v", "P") and (反向=1)
+  else if !GetKeyState("v", "O") and (反向=1)
   {
     反向:=0
   }
-  else if GetKeyState("v", "P") and (反向!=1)
+  else if GetKeyState("v", "O") and (反向!=1)
   {
     break
   }
